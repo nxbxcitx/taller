@@ -1,4 +1,4 @@
-"""Pruebas de las reglas de calidad de ventas.
+﻿"""Pruebas de las reglas de calidad de ventas.
 
 Para cada regla hay al menos un caso válido (devuelve lista vacía) y uno
 inválido (devuelve detalles). Al final hay pruebas de integración con los
@@ -202,7 +202,7 @@ def test_total_diario_primer_dia_no_se_evalua():
 
 # ---------------------------------------------------------------- integración: anexo
 def test_anexo_incidente_es_detectado():
-    df = pd.read_csv(os.path.join(RAIZ, "data", "ventas.csv"))
+    df = pd.read_csv(os.path.join(RAIZ, "tests", "ventas_incidente.csv"))
     errores = validar(df)
     assert nombres(errores) == {"monto_maximo", "total_diario"}
     assert any("1012" in e and "1013" in e and "1014" in e for e in errores)
@@ -242,3 +242,4 @@ def test_script_sale_con_1_si_alguna_regla_falla():
 
 def test_script_sale_con_2_si_el_archivo_no_existe():
     assert run_validacion.main(["run_validacion.py", "no_existe.csv"]) == 2
+
