@@ -1,0 +1,29 @@
+# Resultado de las 27 pruebas ejecutadas localmente (runner mínimo; en tu máquina usa: python -m pytest -v)
+PASS test_anexo_corregido_pasa
+PASS test_anexo_incidente_es_detectado
+PASS test_canal_distingue_mayusculas
+PASS test_canal_invalido
+PASS test_canal_valido
+PASS test_columnas_falta_una
+PASS test_columnas_sobra_una
+PASS test_columnas_validas
+PASS test_datos_validos_pasan_todas_las_reglas
+PASS test_fecha_invalida
+PASS test_fecha_valida
+PASS test_id_venta_con_nulos
+PASS test_id_venta_duplicado
+PASS test_id_venta_valido
+PASS test_monto_maximo_excedido
+PASS test_monto_maximo_valido_incluye_el_limite
+PASS test_monto_negativo_o_cero
+PASS test_monto_no_numerico
+PASS test_monto_valido
+PASS test_script_sale_con_0_si_los_datos_son_validos
+PASS test_script_sale_con_1_si_alguna_regla_falla
+PASS test_script_sale_con_2_si_el_archivo_no_existe
+PASS test_total_diario_exactamente_tres_veces_pasa
+PASS test_total_diario_excede_tres_veces_el_promedio
+PASS test_total_diario_primer_dia_no_se_evalua
+PASS test_total_diario_usa_historico_del_warehouse
+PASS test_total_diario_valido
+27 passed, 0 failed

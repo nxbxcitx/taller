@@ -1,0 +1,18 @@
+# Evidencia local: ejecución del validador (no es captura de GitHub Actions)
+# Fecha: 2026-11-13T02:41Z  |  Python 3.12.3
+
+$ python run_validacion.py data/ventas.csv
+Validando data/ventas.csv: 15 filas, 7 reglas
+
+VALIDACIÓN FALLIDA: 2 regla(s) incumplida(s)
+  - monto_maximo: 3 ventas superan COP 5,000,000: id_venta [1012, 1013, 1014]
+  - total_diario: canal en_linea, 2025-11-28: total 73,970,050.00 supera 3x el promedio previo (473,667.08; umbral 1,421,001.25)
+
+La carga al warehouse queda BLOQUEADA (código de salida 1).
+[código de salida: 1]
+
+$ python run_validacion.py data/ventas_corregido.csv
+Validando data/ventas_corregido.csv: 15 filas, 7 reglas
+
+VALIDACIÓN EXITOSA: los datos pueden cargarse (código de salida 0).
+[código de salida: 0]

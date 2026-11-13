@@ -1,0 +1,42 @@
+# Contrato de datos: tabla de ventas
+# Productor: equipo de e-commerce (tienda en línea) y sistema POS (tiendas)
+# Consumidor: equipo de datos (warehouse y tableros Power BI)
+contrato: ventas
+version: 1.0.0
+propietarios:
+  productor: lider-ecommerce
+  consumidor: directora-de-datos
+entrega:
+  formato: csv
+  frecuencia: diaria
+  hora_limite: "01:30"        # America/Bogota, antes de la carga de las 2:00 a.m.
+columnas:
+  - nombre: id_venta
+    tipo: entero (bigint)
+    nulo: false
+    unico: true
+    descripcion: Identificador único de la venta.
+  - nombre: fecha
+    tipo: fecha (AAAA-MM-DD)
+    nulo: false
+    descripcion: Día de la venta, zona horaria America/Bogota.
+  - nombre: canal
+    tipo: texto
+    nulo: false
+    valores_validos: [tienda, en_linea]
+  - nombre: monto
+    tipo: decimal(14,2)
+    unidad: COP (pesos colombianos, NO centavos)
+    nulo: false
+    rango_valido: "0 < monto <= 5000000"
+calidad:
+  total_diario_por_canal: "<= 3 x promedio de los días anteriores"
+cambios:
+  compatibles:        # agregar una columna opcional
+    aviso: 5 días hábiles
+    proceso: Pull Request al repositorio de contratos, aprobado por Datos
+  incompatibles:      # renombrar, cambiar tipo, unidad o significado
+    aviso: 15 días hábiles
+    proceso: nueva versión mayor; publicar la columna nueva junto a la anterior
+             (p. ej. monto_centavos y monto) durante al menos 2 semanas
+    aprobacion: directora de datos y líder de e-commerce
